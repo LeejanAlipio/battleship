@@ -1,6 +1,6 @@
 import Ship from '../src/modules/ship.js';
 
-describe('create ships', () => {
+describe('creates ships', () => {
   test('creates a patrol boat ship with 2 size', () => {
     expect(new Ship('Patrol Boat', 2)).toEqual({
       type: 'Patrol Boat',
