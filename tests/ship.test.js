@@ -39,7 +39,11 @@ describe('destroy part of the ship', () => {
 });
 
 describe('checks if a ship is destroyed', () => {
-  const ship = new Ship(3);
+  let ship = new Ship(3);
+
+  beforeEach(() => {
+    ship = new Ship(3);
+  })
 
   test('true if ships size and hits are equal', () => {
     ship.hit();
@@ -48,4 +52,11 @@ describe('checks if a ship is destroyed', () => {
 
     expect(ship.isSunk()).toBe(true);
   });
+
+  test('false if ships size and hits are not equal', () => {
+    ship.hit();
+    ship.hit();
+
+    expect(ship.isSunk()).toBe(false);
+  })
 });
