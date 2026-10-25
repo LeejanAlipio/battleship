@@ -1,6 +1,6 @@
 import Ship from '../src/modules/ship.js';
 
-describe('Create ships', () => {
+describe('create ships', () => {
   test('creates a patrol boat ship with 2 size', () => {
     expect(new Ship('Patrol Boat', 2)).toEqual({
       type: 'Patrol Boat',
@@ -18,7 +18,7 @@ describe('Create ships', () => {
   });
 });
 
-describe('Destroy part of the ship', () => {
+describe('destroy part of the ship', () => {
   let ship = new Ship('Destoyer', 3);
 
   beforeEach(() => {
