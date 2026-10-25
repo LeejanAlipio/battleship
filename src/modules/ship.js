@@ -3,10 +3,9 @@ export default class Ship {
     this.size = size;
     this.hits = 0;
   }
-
+  
   hit() {
     this.hits++;
-    this.isSunk();
   }
 
   isSunk() {
