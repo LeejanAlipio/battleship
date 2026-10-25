@@ -5,9 +5,10 @@ describe('Create ships', () => {
     expect(new Ship('Patrol Boat', 2)).toEqual({
       type: 'Patrol Boat',
       size: 2,
+      hits: 0
     });
   });
   test('creates a destroyer boat with 3 size', () => {
-    expect(new Ship('Destroyer', 3)).toEqual({ type: 'Destroyer', size: 3 });
+    expect(new Ship('Destroyer', 3)).toEqual({ type: 'Destroyer', size: 3, hits: 0 });
   });
 });
