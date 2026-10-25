@@ -2,16 +2,14 @@ import Ship from '../src/modules/ship.js';
 
 describe('creates ships', () => {
   test('creates a patrol boat ship with 2 size', () => {
-    expect(new Ship('Patrol Boat', 2)).toEqual({
-      type: 'Patrol Boat',
+    expect(new Ship(2)).toEqual({
       size: 2,
       hits: 0,
     });
   });
 
   test('creates a destroyer boat with 3 size', () => {
-    expect(new Ship('Destroyer', 3)).toEqual({
-      type: 'Destroyer',
+    expect(new Ship(3)).toEqual({
       size: 3,
       hits: 0,
     });
@@ -19,10 +17,10 @@ describe('creates ships', () => {
 });
 
 describe('destroy part of the ship', () => {
-  let ship = new Ship('Destoyer', 3);
+  let ship = new Ship(3);
 
   beforeEach(() => {
-    ship = new Ship('Destoyer', 3);
+    ship = new Ship(3);
   });
 
   test('destroy a part when opponent clicks it', () => {
@@ -41,7 +39,7 @@ describe('destroy part of the ship', () => {
 });
 
 describe('checks if a ship is destroyed', () => {
-  const ship = new Ship('Destroyer', 3);
+  const ship = new Ship(3);
 
   test('true if ships size and hits are equal', () => {
     ship.hit();
