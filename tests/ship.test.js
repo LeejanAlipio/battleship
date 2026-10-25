@@ -39,3 +39,15 @@ describe('destroy part of the ship', () => {
     expect(ship.hits).toBe(3);
   });
 });
+
+describe('checks if a ship is destroyed', () => {
+  const ship = new Ship('Destroyer', 3);
+
+  test('true if ships size and hits are equal', () => {
+    ship.hit();
+    ship.hit();
+    ship.hit();
+
+    expect(ship.isSunk()).toBe(true);
+  })
+})
