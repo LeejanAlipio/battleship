@@ -29,7 +29,7 @@ describe('destroy part of the ship', () => {
     expect(ship.hits).toEqual(1);
   });
 
-  test('destoy all part', () => {
+  test('destroy all part', () => {
     ship.hit();
     ship.hit();
     ship.hit();
@@ -47,5 +47,5 @@ describe('checks if a ship is destroyed', () => {
     ship.hit();
 
     expect(ship.isSunk()).toBe(true);
-  })
-})
+  });
+});
