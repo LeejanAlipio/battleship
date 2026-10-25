@@ -1,1 +1,14 @@
-Pseudocode file to think how you should approach a project.
+CREATE `Ships` a class that will allow you to make ships
+  - Add a ship type and the size of the ship as parameters for ship constructor
+    - This ensures that you can create various types of ships
+  - Add a method that allows opponent to destroy a part of the ship
+  - Add a method that when all part of the ship is destroyed, it's gone
+CREATE a `GameBoard` class
+  - Create a 2D grid in 10x10
+  - Add a method that allows the ships to be placed inside the GameBoard 
+  - Add a method that allows opponent to attack a coordinate in the grid and determine whether it hits a ship,
+    if it does, call the method in the ship that destorys a part
+  - IF the attack is missed, mark it with an `X` style
+  - Add a method that reports whether all ships have been sunk
+CREATE a `Player` class
+  - For each player, create a `GameBoard` object
