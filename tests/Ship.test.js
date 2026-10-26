@@ -26,7 +26,7 @@ describe('destroy part of the ship', () => {
   test('destroy a part when opponent clicks it', () => {
     ship.hit();
 
-    expect(ship.hits).toEqual(1);
+    expect(ship.hits).toBe(1);
   });
 
   test('destroy all part', () => {
