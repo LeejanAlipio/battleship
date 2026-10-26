@@ -1,4 +1,4 @@
-CREATE `Ships` a class that will allow you to make ships
+CREATE `Ship` a class that will allow you to make ships
   - Add a ship type and the size of the ship as parameters for ship constructor
     - This ensures that you can create various types of ships
   - Add a method that allows opponent to destroy a part of the ship
