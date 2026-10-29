@@ -1,11 +1,13 @@
 CREATE `Ship` a class that will allow you to make ships
   - Add a ship type and the size of the ship as parameters for ship constructor
     - This ensures that you can create various types of ships
-  - Add a method that allows opponent to destroy a part of the ship
-  - Add a method that when all part of the ship is destroyed, it's gone
+  - Add a `hit()` method that allows opponent to destroy a part of the ship
+  - Add a `isSunk()` method that that checks if all parts of the ship is destroyed
 CREATE a `GameBoard` class
   - Create a 2D grid in 10x10
-  - Add a method that allows the ships to be placed inside the GameBoard 
+    - For each grid, add a mouseenter event listener that calls a method that observes an array of ships to be placed
+    - For each grid, add a click event listener that calls the method 
+  - Add a `placeShip()` method that calls the `Ship` class and allows the ships to be placed inside the GameBoard
   - Add a method that allows opponent to attack a coordinate in the grid and determine whether it hits a ship,
     if it does, call the method in the ship that destorys a part
   - IF the attack is missed, mark it with an `X` style
