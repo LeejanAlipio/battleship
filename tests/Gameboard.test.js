@@ -9,8 +9,6 @@ beforeEach(() => {
 
 describe('initialize a 2D board', () => {
   test('returns a 2D board filled with null', () => {
-    const gameboard = new Gameboard();
-
     const expectedBoard = [
       [null, null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null, null],
@@ -25,5 +23,30 @@ describe('initialize a 2D board', () => {
     ];
 
     expect(gameboard.getBoard()).toEqual(expectedBoard);
+  });
+});
+
+describe('ship placement method', () => {
+  let ship;
+
+  beforeEach(() => {
+    ship = new Ship(3);
+  });
+
+  test('places a ship horizontally', () => {
+    const expectedPlacement = [
+      ['ship', 'ship', 'ship', null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+    ];
+
+    expect(gameboard.placeShip(ship, index)).toEqual(expectedPlacement);
   });
 });
