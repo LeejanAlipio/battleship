@@ -8,9 +8,10 @@ CREATE a `GameBoard` class
     - For each grid, add a mouseenter event listener that calls a method that observes an array of ships to be placed
     - For each grid, add a click event listener that calls the method 
   - Add a `placeShip()` method that calls the `Ship` class and allows the ships to be placed inside the GameBoard
+    - create a variable to check if player choose to place vertically or horizontally 
   - Add a method that allows opponent to attack a coordinate in the grid and determine whether it hits a ship,
     if it does, call the method in the ship that destorys a part
-  - IF the attack is missed, mark it with an `X` style
-  - Add a method that reports whether all ships have been sunk
+  - IF the attack is missed, mark it with an `X` style or make it null
+  - Add a `isAllShipSunked()` method that reports whether all ships have been sunk
 CREATE a `Player` class
   - For each player, create a `GameBoard` object
