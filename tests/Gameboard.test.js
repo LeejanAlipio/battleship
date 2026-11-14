@@ -47,6 +47,6 @@ describe('ship placement method', () => {
       [null, null, null, null, null, null, null, null, null, null],
     ];
 
-    expect(gameboard.placeShip(ship, index)).toEqual(expectedPlacement);
+    expect(gameboard.placeShip(ship, { row: 0, column: 2})).toEqual(expectedPlacement);
   });
 });
