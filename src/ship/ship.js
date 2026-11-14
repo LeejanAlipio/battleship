@@ -5,6 +5,8 @@ export default class Ship {
   }
   
   hit() {
+    if (this.hits === this.size) return;
+
     this.hits++;
   }
 
