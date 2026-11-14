@@ -59,4 +59,13 @@ describe('checks if a ship is destroyed', () => {
 
     expect(ship.isSunk()).toBe(false);
   })
+
+  test('true if hit method is called more than ships length', () => {
+    ship.hit();
+    ship.hit();
+    ship.hit();
+    ship.hit();
+
+    expect(ship.isSunk()).toBe(true);
+  })
 });
