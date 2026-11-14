@@ -1,4 +1,4 @@
-import Ship from '../src/modules/ship.js';
+import Ship from '../src/ship/ship.js';
 
 describe('creates ships', () => {
   test('creates a patrol boat ship with 2 size', () => {
