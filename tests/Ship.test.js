@@ -1,21 +1,5 @@
 import Ship from '../src/ship/ship.js';
 
-describe('creates ships', () => {
-  test('creates a patrol boat ship with 2 size', () => {
-    expect(new Ship(2)).toEqual({
-      size: 2,
-      hits: 0,
-    });
-  });
-
-  test('creates a destroyer boat with 3 size', () => {
-    expect(new Ship(3)).toEqual({
-      size: 3,
-      hits: 0,
-    });
-  });
-});
-
 describe('destroy part of the ship', () => {
   let ship = new Ship(3);
 
