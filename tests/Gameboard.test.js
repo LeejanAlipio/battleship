@@ -28,6 +28,7 @@ describe('initialize a 2D board', () => {
 
 describe('ship placement method', () => {
   let ship;
+  let isVertical;
 
   beforeEach(() => {
     ship = new Ship(3);
