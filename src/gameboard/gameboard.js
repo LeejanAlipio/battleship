@@ -20,13 +20,25 @@ export default class Gameboard {
   }
 
   placeShip(ship, { row, column }, isVertical) {
+    const lastRow = isVertical ? row + ship.size - 1 : row;
+    const lastColumn = isVertical ? column : column + ship.size - 1;
+
+    if (
+      row < 0 ||
+      column < 0 ||
+      lastRow >= this.#size ||
+      lastColumn >= this.#size
+    ) {
+      return false;
+    }
+
     for (let index = 0; index < ship.size; index++) {
-      const currentRow = isVertical ? row + index: row;
+      const currentRow = isVertical ? row + index : row;
       const currentColumn = isVertical ? column : column + index;
 
       this.#board[currentRow][currentColumn] = 'ship';
     }
 
-    return this.#board;
+    return { board: this.#board, status: true };
   }
 }
