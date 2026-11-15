@@ -18,4 +18,15 @@ export default class Gameboard {
   getBoard() {
     return this.#board;
   }
+
+  placeShip(ship, { row, column }, isVertical) {
+    for (let index = 0; index < ship.size; index++) {
+      const currentRow = isVertical ? row + index: row;
+      const currentColumn = isVertical ? column : column + index;
+
+      this.#board[currentRow][currentColumn] = 'ship';
+    }
+
+    return this.#board;
+  }
 }
