@@ -35,7 +35,7 @@ describe('ship placement method', () => {
   });
 
   test('places a ship horizontally', () => {
-    let isVertical = false;
+    isVertical = false;
 
     const expectedPlacement = [
       ['ship', 'ship', 'ship', null, null, null, null, null, null, null],
@@ -53,5 +53,24 @@ describe('ship placement method', () => {
     expect(
       gameboard.placeShip(ship, { row: 0, column: 0 }, isVertical)
     ).toEqual(expectedPlacement);
+  });
+
+  test('places a ship vertically', () => {
+    isVertical = true;
+
+    const expectedPlacement = [
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, 'ship', null, null, null, null, null, null, null],
+      [null, null, 'ship', null, null, null, null, null, null, null],
+      [null, null, 'ship', null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null],
+    ];
+
+    expect(gameboard.placeShip(ship, { row: 2, column: 2 }, isVertical)).toEqual(expectedPlacement);
   });
 });
