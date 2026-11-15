@@ -74,9 +74,9 @@ describe('ship placement method', () => {
     expect(gameboard.placeShip(ship, { row: 2, column: 2 }, isVertical)).toEqual(expectedPlacement);
   });
 
-  test('throw error if board cannot acomodate the ship size', () => {
+  test('do nothing if placement exceeded boundary', () => {
     isVertical = true;
 
-    expect(() => gameboard.placeShip(ship, { row: 8, column : 1}, isVertical)).toThrow("Ship's placement exceeded the board");
+    expect(gameboard.placeShip(ship, { row: 8, column : 1}, isVertical)).toBeUndefined();
   })
 });
