@@ -51,7 +51,7 @@ describe('ship placement method', () => {
     ];
 
     expect(
-      gameboard.placeShip(ship, { row: 0, column: 0 }, isVertical)
+      gameboard.placeShip(ship, { row: 0, column: 0 }, isVertical).board
     ).toEqual(expectedPlacement);
   });
 
@@ -71,12 +71,14 @@ describe('ship placement method', () => {
       [null, null, null, null, null, null, null, null, null, null],
     ];
 
-    expect(gameboard.placeShip(ship, { row: 2, column: 2 }, isVertical)).toEqual(expectedPlacement);
+    expect(gameboard.placeShip(ship, { row: 2, column: 2 }, isVertical).board).toEqual(expectedPlacement);
   });
 
   test('do nothing if placement exceeded boundary', () => {
     isVertical = true;
 
-    expect(gameboard.placeShip(ship, { row: 8, column : 1}, isVertical)).toBeUndefined();
+    const result = gameboard.placeShip(ship, { row: 8, column : 1}, isVertical);
+
+    expect(result).toBe(false);
   })
 });
