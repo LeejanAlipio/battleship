@@ -1,6 +1,8 @@
 export default class Gameboard {
   #size = 10;
   #board = this.#createBoard();
+  #receivedAttacks = new Set();
+  #missedShots = [];
 
   #createBoard() {
     const board = [];
@@ -17,6 +19,10 @@ export default class Gameboard {
 
   getBoard() {
     return this.#board;
+  }
+
+  getMissedShots() {
+    return this.#missedShots;
   }
 
   placeShip(ship, { row, column }, isVertical) {
@@ -36,9 +42,48 @@ export default class Gameboard {
       const currentRow = isVertical ? row + index : row;
       const currentColumn = isVertical ? column : column + index;
 
-      this.#board[currentRow][currentColumn] = 'ship';
+      if (this.#board[currentRow][currentColumn] !== null) {
+        return false;
+      }
+
+      this.#board[currentRow][currentColumn] = ship;
     }
 
     return { board: this.#board, status: true };
+  }
+
+  receivedAttack({ row, column }) {
+    if (!this.#validateInput(row, column)) return false;
+
+    const position = `${row},${column}`;
+    if (this.#receivedAttacks.has(position)) {
+      return false;
+    }
+
+    this.#receivedAttacks.add(position);
+
+    const ship = this.#board[row][column];
+    if (ship) {
+      ship.hit();
+    } else {
+      this.#missedShots.push({ row, column });
+    }
+
+    return true;
+  }
+
+  #validateInput(row, column) {
+    if (
+      !Number.isInteger(row) ||
+      !Number.isInteger(column) ||
+      row < 0 ||
+      column < 0 ||
+      row >= this.#size ||
+      column >= this.#size
+    ) {
+      return false;
+    }
+
+    return true;
   }
 }
